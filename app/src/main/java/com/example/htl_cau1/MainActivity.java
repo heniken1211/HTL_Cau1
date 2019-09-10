@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 d2.setPositiveButton("Không", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                     }
                 });
                 d2.setNegativeButton("Có", new DialogInterface.OnClickListener() {
