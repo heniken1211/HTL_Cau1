@@ -3,6 +3,7 @@ package com.example.htl_cau1;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
@@ -13,7 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_dn;
+    Button btn_dn, btn_thoat;
     EditText edt_1, edt_2;
     CheckBox chb_luu;
     AlertDialog.Builder d1;
@@ -23,13 +24,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Anhxa();
-        AddEvent();
+        AddEvent1();
+        AddEvent2();
     }
     public void Anhxa(){
         btn_dn=(Button)findViewById(R.id.btn_login);
+        btn_thoat=(Button)findViewById(R.id.btn_exit);
         chb_luu=(CheckBox)findViewById(R.id.chb_save);
     }
-    public void AddEvent(){
+    public void AddEvent1(){
 
         d1=new AlertDialog.Builder(this);
         d1.setTitle( Html.fromHtml("<font color='#0066CC'>Thông báo</font>"));
@@ -52,5 +55,29 @@ public class MainActivity extends AppCompatActivity {
         d2.setTitle("Thông báo");
 
 
+    }
+    public void  AddEvent2(){
+        btn_thoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                d2.setIcon(R.drawable.icon_notification);
+                d2.setTitle( Html.fromHtml("<font color='#0066CC'>Thông báo</font>"));
+                d2.setMessage("Bạn muốn thoát không?");
+                d2.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                d2.setNegativeButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                    }
+                });
+                d2.show();
+            }
+
+        });
     }
 }
