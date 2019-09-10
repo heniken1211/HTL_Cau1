@@ -15,7 +15,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_dn, btn_thoat;
-    EditText edt_1, edt_2;
+    EditText edt_1,edt_2;
     CheckBox chb_luu;
     AlertDialog.Builder d1;
     AlertDialog.Builder d2;
